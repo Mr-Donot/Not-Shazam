@@ -1,3 +1,4 @@
+/* --- Global --- */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -11,29 +12,46 @@ body {
     height: 100vh;
 }
 
+/* --- Titre stylisé --- */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Conteneur principal --- */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* --- Bouton Micro (Effet au maintien) --- */
 .mic-btn {
     background: transparent;
     border: none;
     cursor: pointer;
     width: 100px;
     height: 100px;
+    transition: transform 0.2s ease-in-out;
 }
 
 .mic-btn img {
     width: 100%;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out;
 }
 
+/* Agrandissement quand on maintient */
 .mic-btn:active img {
-    transform: scale(1.1);
+    transform: scale(1.3);
 }
 
+/* --- Bouton Ajouter Musique --- */
 .add-music {
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -45,15 +63,128 @@ body {
 
 .add-music img {
     width: 50px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
 }
 
+.add-music:hover img {
+    opacity: 1;
+}
+
+/* --- Cacher les boutons pendant le chargement --- */
+.hidden {
+    display: none !important;
+    /* S'assurer qu'ils disparaissent complètement */
+}
+
+/* --- Animation de Chargement (Match) --- */
+.loading-container {
+    display: none;
+    /* Caché au départ */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loading-circle {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Barre de Progression */
+.progress-container {
+    width: 80%;
+    max-width: 300px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto 5px auto;
+    display: none;
+    position: relative;
+}
+
+/* Barre qui avance */
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    transition: width 0.5s ease-in-out;
+}
+
+/* Texte SOUS la barre, mais caché par défaut */
+.progress-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+    color: #fff;
+    display: none;
+}
+
+
+
+/* Masquer les éléments pendant le chargement */
+.hidden {
+    display: none !important;
+    /* S'assurer qu'ils disparaissent complètement */
+}
+
+
+
+/* --- Responsive Design --- */
 @media (min-width: 768px) {
     .mic-btn {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 
     .add-music img {
         width: 60px;
     }
+}
+
+/* Désactive le drag des images */
+img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+/* Champ URL YouTube */
+.youtube-input {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+}
+
+.youtube-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+button,
+img {
+    -webkit-touch-callout: none;
+    /* Désactiver le menu contextuel sur iOS */
+    user-select: none;
+    /* Empêcher la sélection */
 }
