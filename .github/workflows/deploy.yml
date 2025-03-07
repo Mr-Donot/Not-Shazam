@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensures full repo history to prevent orphan branch issue
 
       - name: Create Firebase Config JSON
         run: |
@@ -28,4 +30,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: .  # Deploy the root folder (modify if needed)
+          folder: .  # Deploy root folder
+          clean: true  # Remove old files before deploying
+          force: true  # Force push to fix orphan branch issue
