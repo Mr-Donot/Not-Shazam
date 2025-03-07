@@ -1,0 +1,17 @@
+# Ignore Firebase private files (if any)
+firebase.json
+firestore.indexes.json
+firestore.rules
+
+# Ignore environment variables (in case you have local secrets)
+.env
+.env.local
+.env.production
+.env.development
+
+# Ignore VS Code settings (if using VS Code)
+.vscode/
+
+# Ignore unnecessary system files
+.DS_Store
+Thumbs.db

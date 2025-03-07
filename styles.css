@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #1e1e1e;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mic-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+
+.mic-btn img {
+    width: 100%;
+    transition: transform 0.2s;
+}
+
+.mic-btn:active img {
+    transform: scale(1.1);
+}
+
+.add-music {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.add-music img {
+    width: 50px;
+}
+
+@media (min-width: 768px) {
+    .mic-btn {
+        width: 150px;
+        height: 150px;
+    }
+
+    .add-music img {
+        width: 60px;
+    }
+}
