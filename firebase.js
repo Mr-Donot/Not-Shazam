@@ -1,8 +1,18 @@
+// Load Firebase configuration dynamically
 async function loadFirebaseConfig() {
-    const response = await fetch("https://your-secure-server.com/firebase-config.json");
-    const firebaseConfig = await response.json();
-    firebase.initializeApp(firebaseConfig);
-}
-loadFirebaseConfig();
+    try {
+        const response = await fetch("firebase-config.json"); // Fetch from generated JSON file
+        const firebaseConfig = await response.json();
 
-const db = firebase.firestore();
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        console.log("Firebase initialized successfully!");
+    } catch (error) {
+        console.error("Failed to load Firebase config:", error);
+    }
+}
+
+// Call the function to load Firebase configuration
+loadFirebaseConfig();

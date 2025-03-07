@@ -1,17 +1,14 @@
-# Ignore Firebase private files (if any)
-firebase.json
-firestore.indexes.json
-firestore.rules
+# Ignore Firebase config file (generated in GitHub Actions)
+firebase-config.json
 
-# Ignore environment variables (in case you have local secrets)
+# Ignore environment variable files
 .env
 .env.local
 .env.production
 .env.development
 
-# Ignore VS Code settings (if using VS Code)
-.vscode/
-
-# Ignore unnecessary system files
+# Ignore system files
 .DS_Store
-Thumbs.db
+node_modules/
+dist/
+.vscode/
